@@ -1,0 +1,23 @@
+add_library(core)
+target_sources(core
+    PRIVATE
+        algorithm.cpp
+        json.cpp
+        regex.cpp
+        logger.cpp
+        threadpool.cpp
+        timer.cpp
+        timer_factory.cpp
+        net/context_manager.cpp
+        net/secure_http_client.cpp
+        net/http_server.cpp
+        net/http_request_handler.cpp)
+
+target_link_libraries(core
+    PRIVATE
+        Boost::json
+        Boost::system
+        Boost::timer
+        Boost::regex
+        OpenSSL::SSL 
+        OpenSSL::Crypto)
